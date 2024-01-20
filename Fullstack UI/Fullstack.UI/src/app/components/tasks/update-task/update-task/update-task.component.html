@@ -1,0 +1,24 @@
+<div class="container col-6 mt-3">
+    <form #form="ngForm" (ngSubmit)="updateTask()">
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input [(ngModel)]="newTaskFormData.title" name="title" type="text" class="form-control" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea [(ngModel)]="newTaskFormData.description" name="description" class="form-control" name="description" rows="3" ngModel required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Due Date</label>
+        <input [(ngModel)]="newTaskFormData.dueDate" name="dueDate" type="date" class="form-control" ngModel required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Status</label><br>
+        <input  type="radio" name="status" value="Pending" id="Pending" [(ngModel)]="newTaskFormData.status" required>&nbsp;<label for="Pending">Pending</label>&nbsp;&nbsp;
+        <input [(ngModel)]="newTaskFormData.status" type="radio" name="status" value="In Progress" id="In Progress" ngModel required>&nbsp;<label for="In Progress">In Progress</label>&nbsp;&nbsp;
+        <input [(ngModel)]="newTaskFormData.status" type="radio" name="status" value="Finished" id="Finished" ngModel required>&nbsp;<label for="Finished">Finished</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+  

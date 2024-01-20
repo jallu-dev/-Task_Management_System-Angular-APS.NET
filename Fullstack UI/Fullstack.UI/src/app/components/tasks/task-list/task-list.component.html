@@ -1,0 +1,31 @@
+<h1 style="text-align: right;"><a href="tasks/add" class="btn btn-success mx-3" style="display: inline-block;"><i class="fa-solid fa-plus"></i>&nbsp;Add Task</a></h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th >#</th>
+        <th >Title</th>
+        <th >Description</th>
+        <th >Due Date</th>
+        <th >Status</th>
+        <th >Actions</th>
+      </tr>
+    </thead>
+    <tbody style="vertical-align: middle;">
+      <tr *ngFor="let task of tasks; let i=index">
+        <th>{{i+1}}</th>
+        <td>{{task.title}}</td>
+        <td >{{task.description}}</td>
+        <td>{{task.dueDate}}</td>
+        <td *ngIf="task.status=='Pending'" ><p style="background-color: #FF0000;color: aliceblue;">{{task.status}}</p></td>
+        <td *ngIf="task.status=='In Progress'" ><p style="background-color: orangered;color: aliceblue;">{{task.status}}</p></td>
+        <td *ngIf="task.status=='Finished'" ><p style="background-color: #008000;color: aliceblue;">{{task.status}}</p></td>
+        <td>
+            <a href="/tasks/update/{{task.id}}" class="btn btn-primary"><i class="fa-solid fa-pen"></i>
+            </a>
+            &nbsp;
+            <a href="/tasks/delete/{{task.id}}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
